@@ -17,9 +17,12 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/api/generate", {
-        prompt,
-      });
+      const res = await axios.post(
+        "https://vibecode-ai-82hy.onrender.com/api/generate",
+        {
+          prompt,
+        }
+      );
 
       const botMessage = { role: "bot", text: res.data.text };
       setMessages((prev) => [...prev, botMessage]);

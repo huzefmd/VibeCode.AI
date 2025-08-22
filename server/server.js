@@ -5,7 +5,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://vibe-code-ai-three.vercel.app/", // replace with your real Vercel domain
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
